@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3166B0062E0AD70600CC774D /* ZenTrack Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 3166B0052E0AD70600CC774D /* ZenTrack Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		3166AFC32E0AD68C00CC774D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -21,12 +25,67 @@
 			remoteGlobalIDString = 3166AFB32E0AD68A00CC774D;
 			remoteInfo = "ZenTrack Mobile";
 		};
+		3166AFF02E0AD70600CC774D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3166AFAC2E0AD68A00CC774D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3166AFE22E0AD70300CC774D;
+			remoteInfo = ZenTrack;
+		};
+		3166AFFA2E0AD70600CC774D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3166AFAC2E0AD68A00CC774D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3166AFE22E0AD70300CC774D;
+			remoteInfo = ZenTrack;
+		};
+		3166B0072E0AD70600CC774D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3166AFAC2E0AD68A00CC774D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3166B0042E0AD70600CC774D;
+			remoteInfo = "ZenTrack Watch App";
+		};
+		3166B0152E0AD70700CC774D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3166AFAC2E0AD68A00CC774D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3166B0042E0AD70600CC774D;
+			remoteInfo = "ZenTrack Watch App";
+		};
+		3166B01F2E0AD70700CC774D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3166AFAC2E0AD68A00CC774D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3166B0042E0AD70600CC774D;
+			remoteInfo = "ZenTrack Watch App";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3166B0292E0AD70700CC774D /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				3166B0062E0AD70600CC774D /* ZenTrack Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3166AFB42E0AD68A00CC774D /* ZenTrack Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZenTrack Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3166AFC22E0AD68C00CC774D /* ZenTrack MobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ZenTrack MobileTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3166AFCC2E0AD68D00CC774D /* ZenTrack MobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ZenTrack MobileUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3166AFE32E0AD70300CC774D /* ZenTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZenTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3166AFEF2E0AD70600CC774D /* ZenTrackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZenTrackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3166AFF92E0AD70600CC774D /* ZenTrackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZenTrackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3166B0052E0AD70600CC774D /* ZenTrack Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZenTrack Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3166B0142E0AD70700CC774D /* ZenTrack Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ZenTrack Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3166B01E2E0AD70700CC774D /* ZenTrack Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ZenTrack Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -43,6 +102,36 @@
 		3166AFCF2E0AD68D00CC774D /* ZenTrack MobileUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "ZenTrack MobileUITests";
+			sourceTree = "<group>";
+		};
+		3166AFE42E0AD70300CC774D /* ZenTrack */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ZenTrack;
+			sourceTree = "<group>";
+		};
+		3166AFF22E0AD70600CC774D /* ZenTrackTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ZenTrackTests;
+			sourceTree = "<group>";
+		};
+		3166AFFC2E0AD70600CC774D /* ZenTrackUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ZenTrackUITests;
+			sourceTree = "<group>";
+		};
+		3166B0092E0AD70600CC774D /* ZenTrack Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "ZenTrack Watch App";
+			sourceTree = "<group>";
+		};
+		3166B0172E0AD70700CC774D /* ZenTrack Watch AppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "ZenTrack Watch AppTests";
+			sourceTree = "<group>";
+		};
+		3166B0212E0AD70700CC774D /* ZenTrack Watch AppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "ZenTrack Watch AppUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -69,6 +158,48 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3166AFE02E0AD70300CC774D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3166AFEC2E0AD70600CC774D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3166AFF62E0AD70600CC774D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3166B0022E0AD70600CC774D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3166B0112E0AD70700CC774D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3166B01B2E0AD70700CC774D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -78,6 +209,12 @@
 				3166AFB62E0AD68A00CC774D /* ZenTrack Mobile */,
 				3166AFC52E0AD68C00CC774D /* ZenTrack MobileTests */,
 				3166AFCF2E0AD68D00CC774D /* ZenTrack MobileUITests */,
+				3166AFE42E0AD70300CC774D /* ZenTrack */,
+				3166AFF22E0AD70600CC774D /* ZenTrackTests */,
+				3166AFFC2E0AD70600CC774D /* ZenTrackUITests */,
+				3166B0092E0AD70600CC774D /* ZenTrack Watch App */,
+				3166B0172E0AD70700CC774D /* ZenTrack Watch AppTests */,
+				3166B0212E0AD70700CC774D /* ZenTrack Watch AppUITests */,
 				3166AFB52E0AD68A00CC774D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,6 +225,12 @@
 				3166AFB42E0AD68A00CC774D /* ZenTrack Mobile.app */,
 				3166AFC22E0AD68C00CC774D /* ZenTrack MobileTests.xctest */,
 				3166AFCC2E0AD68D00CC774D /* ZenTrack MobileUITests.xctest */,
+				3166AFE32E0AD70300CC774D /* ZenTrack.app */,
+				3166AFEF2E0AD70600CC774D /* ZenTrackTests.xctest */,
+				3166AFF92E0AD70600CC774D /* ZenTrackUITests.xctest */,
+				3166B0052E0AD70600CC774D /* ZenTrack Watch App.app */,
+				3166B0142E0AD70700CC774D /* ZenTrack Watch AppTests.xctest */,
+				3166B01E2E0AD70700CC774D /* ZenTrack Watch AppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -163,6 +306,144 @@
 			productReference = 3166AFCC2E0AD68D00CC774D /* ZenTrack MobileUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		3166AFE22E0AD70300CC774D /* ZenTrack */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3166B02A2E0AD70700CC774D /* Build configuration list for PBXNativeTarget "ZenTrack" */;
+			buildPhases = (
+				3166AFDF2E0AD70300CC774D /* Sources */,
+				3166AFE02E0AD70300CC774D /* Frameworks */,
+				3166AFE12E0AD70300CC774D /* Resources */,
+				3166B0292E0AD70700CC774D /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3166B0082E0AD70600CC774D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				3166AFE42E0AD70300CC774D /* ZenTrack */,
+			);
+			name = ZenTrack;
+			packageProductDependencies = (
+			);
+			productName = ZenTrack;
+			productReference = 3166AFE32E0AD70300CC774D /* ZenTrack.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3166AFEE2E0AD70600CC774D /* ZenTrackTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3166B02D2E0AD70700CC774D /* Build configuration list for PBXNativeTarget "ZenTrackTests" */;
+			buildPhases = (
+				3166AFEB2E0AD70600CC774D /* Sources */,
+				3166AFEC2E0AD70600CC774D /* Frameworks */,
+				3166AFED2E0AD70600CC774D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3166AFF12E0AD70600CC774D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				3166AFF22E0AD70600CC774D /* ZenTrackTests */,
+			);
+			name = ZenTrackTests;
+			packageProductDependencies = (
+			);
+			productName = ZenTrackTests;
+			productReference = 3166AFEF2E0AD70600CC774D /* ZenTrackTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3166AFF82E0AD70600CC774D /* ZenTrackUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3166B0302E0AD70700CC774D /* Build configuration list for PBXNativeTarget "ZenTrackUITests" */;
+			buildPhases = (
+				3166AFF52E0AD70600CC774D /* Sources */,
+				3166AFF62E0AD70600CC774D /* Frameworks */,
+				3166AFF72E0AD70600CC774D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3166AFFB2E0AD70600CC774D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				3166AFFC2E0AD70600CC774D /* ZenTrackUITests */,
+			);
+			name = ZenTrackUITests;
+			packageProductDependencies = (
+			);
+			productName = ZenTrackUITests;
+			productReference = 3166AFF92E0AD70600CC774D /* ZenTrackUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		3166B0042E0AD70600CC774D /* ZenTrack Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3166B0262E0AD70700CC774D /* Build configuration list for PBXNativeTarget "ZenTrack Watch App" */;
+			buildPhases = (
+				3166B0012E0AD70600CC774D /* Sources */,
+				3166B0022E0AD70600CC774D /* Frameworks */,
+				3166B0032E0AD70600CC774D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				3166B0092E0AD70600CC774D /* ZenTrack Watch App */,
+			);
+			name = "ZenTrack Watch App";
+			packageProductDependencies = (
+			);
+			productName = "ZenTrack Watch App";
+			productReference = 3166B0052E0AD70600CC774D /* ZenTrack Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3166B0132E0AD70700CC774D /* ZenTrack Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3166B0332E0AD70700CC774D /* Build configuration list for PBXNativeTarget "ZenTrack Watch AppTests" */;
+			buildPhases = (
+				3166B0102E0AD70700CC774D /* Sources */,
+				3166B0112E0AD70700CC774D /* Frameworks */,
+				3166B0122E0AD70700CC774D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3166B0162E0AD70700CC774D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				3166B0172E0AD70700CC774D /* ZenTrack Watch AppTests */,
+			);
+			name = "ZenTrack Watch AppTests";
+			packageProductDependencies = (
+			);
+			productName = "ZenTrack Watch AppTests";
+			productReference = 3166B0142E0AD70700CC774D /* ZenTrack Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3166B01D2E0AD70700CC774D /* ZenTrack Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3166B0362E0AD70700CC774D /* Build configuration list for PBXNativeTarget "ZenTrack Watch AppUITests" */;
+			buildPhases = (
+				3166B01A2E0AD70700CC774D /* Sources */,
+				3166B01B2E0AD70700CC774D /* Frameworks */,
+				3166B01C2E0AD70700CC774D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3166B0202E0AD70700CC774D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				3166B0212E0AD70700CC774D /* ZenTrack Watch AppUITests */,
+			);
+			name = "ZenTrack Watch AppUITests";
+			packageProductDependencies = (
+			);
+			productName = "ZenTrack Watch AppUITests";
+			productReference = 3166B01E2E0AD70700CC774D /* ZenTrack Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -184,6 +465,28 @@
 						CreatedOnToolsVersion = 16.4;
 						TestTargetID = 3166AFB32E0AD68A00CC774D;
 					};
+					3166AFE22E0AD70300CC774D = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					3166AFEE2E0AD70600CC774D = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 3166AFE22E0AD70300CC774D;
+					};
+					3166AFF82E0AD70600CC774D = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 3166AFE22E0AD70300CC774D;
+					};
+					3166B0042E0AD70600CC774D = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					3166B0132E0AD70700CC774D = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 3166B0042E0AD70600CC774D;
+					};
+					3166B01D2E0AD70700CC774D = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 3166B0042E0AD70600CC774D;
+					};
 				};
 			};
 			buildConfigurationList = 3166AFAF2E0AD68A00CC774D /* Build configuration list for PBXProject "ZenTrack Mobile" */;
@@ -203,6 +506,12 @@
 				3166AFB32E0AD68A00CC774D /* ZenTrack Mobile */,
 				3166AFC12E0AD68C00CC774D /* ZenTrack MobileTests */,
 				3166AFCB2E0AD68D00CC774D /* ZenTrack MobileUITests */,
+				3166AFE22E0AD70300CC774D /* ZenTrack */,
+				3166AFEE2E0AD70600CC774D /* ZenTrackTests */,
+				3166AFF82E0AD70600CC774D /* ZenTrackUITests */,
+				3166B0042E0AD70600CC774D /* ZenTrack Watch App */,
+				3166B0132E0AD70700CC774D /* ZenTrack Watch AppTests */,
+				3166B01D2E0AD70700CC774D /* ZenTrack Watch AppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -223,6 +532,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3166AFCA2E0AD68D00CC774D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3166AFE12E0AD70300CC774D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3166AFED2E0AD70600CC774D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3166AFF72E0AD70600CC774D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3166B0032E0AD70600CC774D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3166B0122E0AD70700CC774D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3166B01C2E0AD70700CC774D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,6 +604,48 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3166AFDF2E0AD70300CC774D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3166AFEB2E0AD70600CC774D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3166AFF52E0AD70600CC774D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3166B0012E0AD70600CC774D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3166B0102E0AD70700CC774D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3166B01A2E0AD70700CC774D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -265,6 +658,31 @@
 			isa = PBXTargetDependency;
 			target = 3166AFB32E0AD68A00CC774D /* ZenTrack Mobile */;
 			targetProxy = 3166AFCD2E0AD68D00CC774D /* PBXContainerItemProxy */;
+		};
+		3166AFF12E0AD70600CC774D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3166AFE22E0AD70300CC774D /* ZenTrack */;
+			targetProxy = 3166AFF02E0AD70600CC774D /* PBXContainerItemProxy */;
+		};
+		3166AFFB2E0AD70600CC774D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3166AFE22E0AD70300CC774D /* ZenTrack */;
+			targetProxy = 3166AFFA2E0AD70600CC774D /* PBXContainerItemProxy */;
+		};
+		3166B0082E0AD70600CC774D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3166B0042E0AD70600CC774D /* ZenTrack Watch App */;
+			targetProxy = 3166B0072E0AD70600CC774D /* PBXContainerItemProxy */;
+		};
+		3166B0162E0AD70700CC774D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3166B0042E0AD70600CC774D /* ZenTrack Watch App */;
+			targetProxy = 3166B0152E0AD70700CC774D /* PBXContainerItemProxy */;
+		};
+		3166B0202E0AD70700CC774D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3166B0042E0AD70600CC774D /* ZenTrack Watch App */;
+			targetProxy = 3166B01F2E0AD70700CC774D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -543,6 +961,276 @@
 			};
 			name = Release;
 		};
+		3166B0272E0AD70700CC774D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = ZenTrack;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = aseshnemal.ZenTrack;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = aseshnemal.ZenTrack.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Debug;
+		};
+		3166B0282E0AD70700CC774D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = ZenTrack;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = aseshnemal.ZenTrack;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = aseshnemal.ZenTrack.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Release;
+		};
+		3166B02B2E0AD70700CC774D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = ZenTrack;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = aseshnemal.ZenTrack;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3166B02C2E0AD70700CC774D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = ZenTrack;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = aseshnemal.ZenTrack;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3166B02E2E0AD70700CC774D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = aseshnemal.ZenTrackTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZenTrack.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ZenTrack";
+			};
+			name = Debug;
+		};
+		3166B02F2E0AD70700CC774D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = aseshnemal.ZenTrackTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZenTrack.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ZenTrack";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3166B0312E0AD70700CC774D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = aseshnemal.ZenTrackUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ZenTrack;
+			};
+			name = Debug;
+		};
+		3166B0322E0AD70700CC774D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = aseshnemal.ZenTrackUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ZenTrack;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3166B0342E0AD70700CC774D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aseshnemal.ZenTrack-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZenTrack Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ZenTrack Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Debug;
+		};
+		3166B0352E0AD70700CC774D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aseshnemal.ZenTrack-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZenTrack Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ZenTrack Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Release;
+		};
+		3166B0372E0AD70700CC774D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aseshnemal.ZenTrack-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "ZenTrack Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Debug;
+		};
+		3166B0382E0AD70700CC774D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aseshnemal.ZenTrack-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "ZenTrack Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -578,6 +1266,60 @@
 			buildConfigurations = (
 				3166AFDD2E0AD68D00CC774D /* Debug */,
 				3166AFDE2E0AD68D00CC774D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3166B0262E0AD70700CC774D /* Build configuration list for PBXNativeTarget "ZenTrack Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3166B0272E0AD70700CC774D /* Debug */,
+				3166B0282E0AD70700CC774D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3166B02A2E0AD70700CC774D /* Build configuration list for PBXNativeTarget "ZenTrack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3166B02B2E0AD70700CC774D /* Debug */,
+				3166B02C2E0AD70700CC774D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3166B02D2E0AD70700CC774D /* Build configuration list for PBXNativeTarget "ZenTrackTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3166B02E2E0AD70700CC774D /* Debug */,
+				3166B02F2E0AD70700CC774D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3166B0302E0AD70700CC774D /* Build configuration list for PBXNativeTarget "ZenTrackUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3166B0312E0AD70700CC774D /* Debug */,
+				3166B0322E0AD70700CC774D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3166B0332E0AD70700CC774D /* Build configuration list for PBXNativeTarget "ZenTrack Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3166B0342E0AD70700CC774D /* Debug */,
+				3166B0352E0AD70700CC774D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3166B0362E0AD70700CC774D /* Build configuration list for PBXNativeTarget "ZenTrack Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3166B0372E0AD70700CC774D /* Debug */,
+				3166B0382E0AD70700CC774D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
