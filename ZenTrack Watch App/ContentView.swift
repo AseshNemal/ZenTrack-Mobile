@@ -9,6 +9,7 @@ struct ContentView: View {
                 NavigationLink("Focus Timer", destination: TimerView())
                 NavigationLink("Breathe", destination: BreatheView())
                 NavigationLink("Habit Tracker", destination: HabitView())
+                NavigationLink("Medicine", destination: MedicineView())
             }
             .navigationTitle("ZenTrack")
         }

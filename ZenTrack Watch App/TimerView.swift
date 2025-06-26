@@ -59,6 +59,17 @@ struct TimerView: View {
         }
         .padding()
         .navigationTitle("Focus Timer")
+        .onDisappear {
+            // Send current progress when leaving the view
+            if timerRunning || timeRemaining < 25 * 60 {
+                let completedMinutes = 25 - (timeRemaining / 60)
+                if completedMinutes > 0 {
+                    store.focus = completedMinutes
+                    print("Timer view disappeared - sending partial focus progress: \(completedMinutes)")
+                    WatchSessionManager.shared.sendCurrentStateToPhone()
+                }
+            }
+        }
     }
 
     func startTimer() {
@@ -74,12 +85,21 @@ struct TimerView: View {
                 // Send focus data to iPhone
                 let completedMinutes = 25 // since timer is for 25 minutes
                 store.focus = completedMinutes
+                print("Timer completed - setting focus to: \(completedMinutes)")
                 WatchSessionManager.shared.sendCurrentStateToPhone()
             }
         }
     }
 
     func resetTimer() {
+        // Send current progress before resetting
+        let completedMinutes = 25 - (timeRemaining / 60)
+        if completedMinutes > 0 {
+            store.focus = completedMinutes
+            print("Timer reset - sending partial focus progress: \(completedMinutes)")
+            WatchSessionManager.shared.sendCurrentStateToPhone()
+        }
+        
         timer?.invalidate()
         timer = nil
         timeRemaining = 25 * 60

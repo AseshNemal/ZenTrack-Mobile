@@ -38,10 +38,33 @@ struct BreatheView: View {
                     .cornerRadius(10)
             }
             .disabled(sessionRunning)
+            
+            if sessionRunning || timerCount > 0 {
+                Button(action: {
+                    resetSession()
+                }) {
+                    Text("Reset")
+                        .font(.headline)
+                        .padding()
+                        .background(Color.red.opacity(0.7))
+                        .cornerRadius(10)
+                }
+            }
             Spacer()
         }
         .padding()
         .navigationTitle("Breathe")
+        .onDisappear {
+            // Send current progress when leaving the view
+            if sessionRunning || timerCount > 0 {
+                let completedBreaths = timerCount / breathDuration
+                if completedBreaths > 0 {
+                    store.breathe = completedBreaths
+                    print("Breathe view disappeared - sending partial breathe progress: \(completedBreaths)")
+                    WatchSessionManager.shared.sendCurrentStateToPhone()
+                }
+            }
+        }
     }
 
     func startSession() {
@@ -62,9 +85,27 @@ struct BreatheView: View {
                 // Send breathe data to iPhone
                 let completedBreaths = timerCount / breathDuration
                 store.breathe = completedBreaths
+                print("Breathe session completed - setting breathe to: \(completedBreaths)")
                 WatchSessionManager.shared.sendCurrentStateToPhone()
             }
         }
+    }
+
+    func resetSession() {
+        // Send current progress before resetting
+        let completedBreaths = timerCount / breathDuration
+        if completedBreaths > 0 {
+            store.breathe = completedBreaths
+            print("Breathe session reset - sending partial breathe progress: \(completedBreaths)")
+            WatchSessionManager.shared.sendCurrentStateToPhone()
+        }
+        
+        sessionRunning = false
+        timerCount = 0
+        isInhale = true
+        timer?.invalidate()
+        timer = nil
+        WKInterfaceDevice.current().play(.click)
     }
 }
 

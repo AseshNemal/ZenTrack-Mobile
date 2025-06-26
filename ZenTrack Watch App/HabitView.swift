@@ -8,8 +8,8 @@ struct HabitView: View {
     @State private var lastUpdateDate: Date = Date()
 
     var body: some View {
-        VStack {
-            if store.habits.isEmpty {
+        VStack(spacing: 8) {
+            if store.availableHabits.isEmpty {
                 VStack(spacing: 20) {
                     Image(systemName: "list.bullet.circle")
                         .font(.system(size: 40))
@@ -26,39 +26,57 @@ struct HabitView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
                 List {
-                    ForEach(Array(store.habits.keys), id: \.self) { habit in
-                        Toggle(habit, isOn: Binding(
-                            get: { store.habits[habit, default: false] },
+                    ForEach(store.availableHabits, id: \.self) { habit in
+                        Toggle(habit.name, isOn: Binding(
+                            get: { store.habits[habit.name, default: false] },
                             set: { newValue in
-                                store.habits[habit] = newValue
+                                store.habits[habit.name] = newValue
                                 updateStreak()
                                 sendHabitsToPhone()
                             }
                         ))
+                        .padding(.vertical, 2)
                     }
                 }
+                .frame(maxHeight: .infinity)
                 
-                Text("Streak: \(habitStreak) days")
-                    .font(.headline)
-                    .padding()
+                HStack(spacing: 8) {
+                    Image(systemName: "flame.fill")
+                        .foregroundColor(.orange)
+                        .font(.caption)
+                    Text("Streak: \(habitStreak)")
+                        .font(.caption)
+                        .foregroundColor(.orange)
+                }
+                .padding(.top, 4)
                 
                 Button(action: {
                     // Reset all habits for today
-                    for key in store.habits.keys {
-                        store.habits[key] = false
+                    for habit in store.availableHabits {
+                        store.habits[habit.name] = false
                     }
                     habitStreak = 0
                     WKInterfaceDevice.current().play(.click)
                     sendHabitsToPhone()
                 }) {
-                    Text("Reset Day")
-                        .font(.headline)
-                        .padding()
-                        .background(Color.red.opacity(0.3))
-                        .cornerRadius(10)
+                    HStack(spacing: 4) {
+                        Image(systemName: "arrow.counterclockwise")
+                        Text("Reset Day")
+                    }
+                    .font(.caption)
+                    .padding(.vertical, 4)
+                    .padding(.horizontal, 10)
+                    .background(Color.clear)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.red, lineWidth: 1)
+                    )
                 }
+                .buttonStyle(PlainButtonStyle())
+                .padding(.top, 2)
             }
         }
+        .padding(.horizontal, 4)
         .navigationTitle("Habit Tracker")
         .onAppear {
             updateStreak()
@@ -80,13 +98,17 @@ struct HabitView: View {
     }
 
     func allHabitsCompleted() -> Bool {
-        !store.habits.isEmpty && store.habits.values.allSatisfy { $0 }
+        !store.availableHabits.isEmpty && store.availableHabits.allSatisfy { habit in
+            store.habits[habit.name, default: false]
+        }
     }
 
     func sendHabitsToPhone() {
         WatchSessionManager.shared.sendCurrentStateToPhone()
     }
 }
+
+
 
 struct HabitView_Previews: PreviewProvider {
     static var previews: some View {

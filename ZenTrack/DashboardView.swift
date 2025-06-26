@@ -5,7 +5,19 @@ struct DashboardView: View {
     
     var todayData: DailyData? {
         let today = WatchDataManager.dateString(for: Date())
-        return watchData.history[today]
+        let data = watchData.history[today]
+        print("Dashboard todayData - focus: \(data?.focus ?? 0), breathe: \(data?.breathe ?? 0)")
+        return data
+    }
+    
+    var todayMedicineTakenStatus: [String: Bool] {
+        watchData.medicineTakenStatus[WatchDataManager.dateString(for: Date())] ?? [:]
+    }
+    
+    var todayString: String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .full
+        return formatter.string(from: Date())
     }
     
     var body: some View {
@@ -15,118 +27,110 @@ struct DashboardView: View {
                     // Connection Status Card
                     ConnectionStatusCard(isPaired: watchData.isPaired)
                     
-                    // History Button
-                    NavigationLink(destination: HistoryView()) {
-                        HStack {
-                            Image(systemName: "clock.arrow.circlepath")
-                                .font(.title2)
-                            Text("View History")
-                                .font(.headline)
-                                .fontWeight(.medium)
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                        }
-                        .padding()
-                        .background(Color(.systemBackground))
-                        .cornerRadius(12)
-                        .shadow(color: .black.opacity(0.05), radius: 2, x: 0, y: 1)
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    
-                    // Manage Habits Button
-                    NavigationLink(destination: HabitManagementView()) {
-                        HStack {
-                            Image(systemName: "list.bullet.circle")
-                                .font(.title2)
-                            Text("Manage Habits")
-                                .font(.headline)
-                                .fontWeight(.medium)
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                        }
-                        .padding()
-                        .background(Color(.systemBackground))
-                        .cornerRadius(12)
-                        .shadow(color: .black.opacity(0.05), radius: 2, x: 0, y: 1)
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    
                     // Today's Data Grid
                     LazyVGrid(columns: [
                         GridItem(.flexible()),
                         GridItem(.flexible())
                     ], spacing: 16) {
                         // Mood Card
-                        if !watchData.mood.isEmpty {
-                            VStack(spacing: 12) {
-                                HStack {
-                                    Image(systemName: "face.smiling")
-                                        .font(.title2)
-                                        .foregroundColor(.orange)
-                                    Spacer()
-                                    if let todayData = todayData, todayData.moodCount > 1 {
-                                        Text("(\(todayData.moodCount))")
-                                            .font(.caption)
-                                            .foregroundColor(.secondary)
-                                    }
+                        VStack(spacing: 12) {
+                            HStack {
+                                Image(systemName: "face.smiling")
+                                    .font(.title2)
+                                    .foregroundColor(.orange)
+                                Spacer()
+                                if let todayData = todayData, todayData.moodCount > 1 {
+                                    Text("(\(todayData.moodCount))")
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
                                 }
-                                
-                                Text(watchData.mood)
-                                    .font(.system(size: 32))
-                                
-                                Text("Average Mood")
-                                    .font(.caption)
-                                    .fontWeight(.medium)
-                                    .foregroundColor(.secondary)
                             }
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color(.systemBackground))
-                            .cornerRadius(12)
-                            .shadow(color: .black.opacity(0.05), radius: 2, x: 0, y: 1)
+                            Text(todayData?.averageMood.isEmpty == false ? todayData!.averageMood : "-")
+                                .font(.system(size: 32))
+                            Text("Average Mood")
+                                .font(.caption)
+                                .fontWeight(.medium)
+                                .foregroundColor(.secondary)
                         }
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color(.systemBackground))
+                        .cornerRadius(12)
+                        .shadow(color: .black.opacity(0.05), radius: 2, x: 0, y: 1)
                         
                         // Water Card
-                        if watchData.water > 0 {
-                            DataCardView(
-                                title: "Water",
-                                icon: "drop.fill",
-                                iconColor: .blue,
-                                content: "\(watchData.water) ml",
-                                contentType: .text
-                            )
-                        }
+                        DataCardView(
+                            title: "Water",
+                            icon: "drop.fill",
+                            iconColor: .blue,
+                            content: todayData != nil && todayData!.water > 0 ? "\(todayData!.water) ml" : "0 ml",
+                            contentType: .text
+                        )
                         
                         // Focus Card
-                        if watchData.focus > 0 {
-                            DataCardView(
-                                title: "Focus",
-                                icon: "brain.head.profile",
-                                iconColor: .green,
-                                content: "\(watchData.focus) min",
-                                contentType: .text
-                            )
-                        }
+                        DataCardView(
+                            title: "Focus",
+                            icon: "brain.head.profile",
+                            iconColor: .green,
+                            content: todayData != nil && todayData!.focus > 0 ? "\(todayData!.focus) min" : "0 min",
+                            contentType: .text
+                        )
                         
                         // Breathe Card
-                        if watchData.breathe > 0 {
-                            DataCardView(
-                                title: "Breathe",
-                                icon: "wind",
-                                iconColor: .cyan,
-                                content: "\(watchData.breathe)",
-                                contentType: .text
-                            )
-                        }
+                        DataCardView(
+                            title: "Breathe",
+                            icon: "wind",
+                            iconColor: .cyan,
+                            content: todayData != nil && todayData!.breathe > 0 ? "\(todayData!.breathe)" : "0",
+                            contentType: .text
+                        )
                     }
                     
                     // Habits Section
-                    if !watchData.habits.isEmpty {
-                        HabitsCardView(habits: watchData.habits)
+                    if let habits = todayData?.habits, !habits.isEmpty {
+                        HabitsCardView(habits: habits)
+                    } else {
+                        VStack(spacing: 12) {
+                            HStack {
+                                Image(systemName: "checkmark.circle")
+                                    .font(.title2)
+                                    .foregroundColor(.gray)
+                                Text("Today's Habits")
+                                    .font(.headline)
+                                    .fontWeight(.medium)
+                                Spacer()
+                            }
+                            Text("No habits tracked yet today.")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding()
+                        .background(Color(.systemBackground))
+                        .cornerRadius(12)
+                        .shadow(color: .black.opacity(0.05), radius: 2, x: 0, y: 1)
+                    }
+
+                    // Medicine Section
+                    if !watchData.medicineReminders.isEmpty {
+                        VStack(spacing: 12) {
+                            HStack {
+                                Image(systemName: "pills")
+                                    .font(.title2)
+                                    .foregroundColor(.blue)
+                                Text("Today's Medicine")
+                                    .font(.headline)
+                                    .fontWeight(.medium)
+                                Spacer()
+                            }
+                            MedicineStatusList(
+                                medicines: watchData.medicineReminders,
+                                takenStatus: todayMedicineTakenStatus
+                            )
+                        }
+                        .padding()
+                        .background(Color(.systemBackground))
+                        .cornerRadius(12)
+                        .shadow(color: .black.opacity(0.05), radius: 2, x: 0, y: 1)
                     }
                     
                     Spacer(minLength: 20)
@@ -220,13 +224,10 @@ struct DataCardView: View {
 
 struct HabitsCardView: View {
     let habits: [String: Bool]
+    @ObservedObject private var watchData = WatchDataManager.shared
     
-    var completedHabits: [String] {
-        habits.filter { $0.value }.map { $0.key }
-    }
-    
-    var incompleteHabits: [String] {
-        habits.filter { !$0.value }.map { $0.key }
+    var habitsByCategory: [String: [Habit]] {
+        Dictionary(grouping: watchData.availableHabits, by: { $0.category })
     }
     
     var body: some View {
@@ -239,31 +240,41 @@ struct HabitsCardView: View {
                     .font(.headline)
                     .fontWeight(.medium)
                 Spacer()
-                Text("\(completedHabits.count)/\(habits.count)")
+                let completed = habits.filter { $0.value }.count
+                Text("\(completed)/\(habits.count)")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
             
-            VStack(spacing: 8) {
-                ForEach(completedHabits, id: \.self) { habit in
-                    HStack {
-                        Image(systemName: "checkmark.circle.fill")
-                            .foregroundColor(.green)
-                        Text(habit)
-                            .font(.body)
-                        Spacer()
-                    }
-                }
-                
-                ForEach(incompleteHabits, id: \.self) { habit in
-                    HStack {
-                        Image(systemName: "circle")
-                            .foregroundColor(.gray)
-                        Text(habit)
-                            .font(.body)
+            ForEach(watchData.availableCategories, id: \.self) { category in
+                if let habitsInCategory = habitsByCategory[category], !habitsInCategory.isEmpty {
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text(category)
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
                             .foregroundColor(.secondary)
-                        Spacer()
+                        ForEach(habitsInCategory, id: \.self) { habit in
+                            HStack {
+                                let done = habits[habit.name] ?? false
+                                Image(systemName: done ? "checkmark.circle.fill" : "circle")
+                                    .foregroundColor(done ? .green : .gray)
+                                Text(habit.name)
+                                    .font(.body)
+                                    .foregroundColor(done ? .primary : .secondary)
+                                if let streak = watchData.habitStreaks[habit.name], streak > 0 {
+                                    Text("🔥 \(streak)")
+                                        .font(.caption)
+                                        .foregroundColor(.orange)
+                                        .padding(.horizontal, 6)
+                                        .padding(.vertical, 2)
+                                        .background(Color.orange.opacity(0.1))
+                                        .cornerRadius(8)
+                                }
+                                Spacer()
+                            }
+                        }
                     }
+                    .padding(.top, 4)
                 }
             }
         }
@@ -271,6 +282,32 @@ struct HabitsCardView: View {
         .background(Color(.systemBackground))
         .cornerRadius(12)
         .shadow(color: .black.opacity(0.05), radius: 2, x: 0, y: 1)
+    }
+}
+
+struct MedicineStatusList: View {
+    let medicines: [String]
+    let takenStatus: [String: Bool]
+    var body: some View {
+        ForEach(medicines, id: \.self) { med in
+            let taken = takenStatus[med] ?? false
+            HStack {
+                Image(systemName: taken ? "checkmark.circle.fill" : "circle")
+                    .foregroundColor(taken ? .green : .gray)
+                Text(med)
+                    .font(.body)
+                Spacer()
+                if taken {
+                    Text("Taken")
+                        .font(.caption)
+                        .foregroundColor(.green)
+                } else {
+                    Text("Not taken")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+            }
+        }
     }
 }
 

@@ -1,6 +1,11 @@
 import Foundation
 import WatchConnectivity
 
+struct Habit: Codable, Hashable {
+    var name: String
+    var category: String
+}
+
 // Add this data store to keep the current state
 class WatchDataStore: ObservableObject {
     static let shared = WatchDataStore()
@@ -9,6 +14,8 @@ class WatchDataStore: ObservableObject {
     @Published var focus: Int = 0
     @Published var breathe: Int = 0
     @Published var habits: [String: Bool] = [:]
+    @Published var availableHabits: [Habit] = []
+    @Published var medicineReminders: [String] = []
 }
 
 class WatchSessionManager: NSObject, WCSessionDelegate {
@@ -52,6 +59,8 @@ class WatchSessionManager: NSObject, WCSessionDelegate {
             switch messageType {
             case "habits_update":
                 handleHabitsUpdate(message: message)
+            case "medicine_update":
+                handleMedicineUpdate(message: message)
             default:
                 print("Unknown message type: \(messageType)")
             }
@@ -59,16 +68,31 @@ class WatchSessionManager: NSObject, WCSessionDelegate {
     }
     
     private func handleHabitsUpdate(message: [String: Any]) {
-        if let availableHabits = message["availableHabits"] as? [String] {
-            // Update the store with new available habits
-            // Note: We'll need to update the HabitView to use these
-            print("Received available habits: \(availableHabits)")
+        if let availableHabitsData = message["availableHabits"] as? [[String: Any]] {
+            let decoder = JSONDecoder()
+            let habits: [Habit] = availableHabitsData.compactMap { dict in
+                guard let name = dict["name"] as? String, let category = dict["category"] as? String else { return nil }
+                return Habit(name: name, category: category)
+            }
+            DispatchQueue.main.async {
+                WatchDataStore.shared.availableHabits = habits
+            }
+            print("Received available habits: \(habits)")
         }
-        
         if let currentHabits = message["currentHabits"] as? [String: Bool] {
-            // Update the store with current habit states
-            WatchDataStore.shared.habits = currentHabits
+            DispatchQueue.main.async {
+                WatchDataStore.shared.habits = currentHabits
+            }
             print("Received current habits: \(currentHabits)")
+        }
+    }
+    
+    private func handleMedicineUpdate(message: [String: Any]) {
+        if let medicineReminders = message["medicineReminders"] as? [String] {
+            DispatchQueue.main.async {
+                WatchDataStore.shared.medicineReminders = medicineReminders
+            }
+            print("Received medicine reminders: \(medicineReminders)")
         }
     }
     
@@ -87,6 +111,8 @@ class WatchSessionManager: NSObject, WCSessionDelegate {
             "habits": habits
         ]
         print("Sending message to iPhone: \(message)")
+        print("Focus value being sent: \(focus)")
+        print("Breathe value being sent: \(breathe)")
         session.sendMessage(message, replyHandler: nil) { error in
             print("Error sending message: \(error.localizedDescription)")
         }
@@ -95,6 +121,47 @@ class WatchSessionManager: NSObject, WCSessionDelegate {
     // Update sendDataToPhone to use WatchDataStore.shared by default
     func sendCurrentStateToPhone() {
         let store = WatchDataStore.shared
+        print("sendCurrentStateToPhone - store.focus: \(store.focus), store.breathe: \(store.breathe)")
         sendDataToPhone(mood: store.mood, water: store.water, focus: store.focus, breathe: store.breathe, habits: store.habits)
+    }
+    
+    // Add this function to request medicine reminders from the phone
+    func requestMedicineRemindersFromPhone() {
+        let session = WCSession.default
+        guard session.isReachable else {
+            print("iPhone is not reachable for medicine request")
+            return
+        }
+        let message: [String: Any] = ["type": "medicine_request"]
+        print("Requesting medicine reminders from iPhone")
+        session.sendMessage(message, replyHandler: nil) { error in
+            print("Error requesting medicine reminders: \(error.localizedDescription)")
+        }
+    }
+    
+    // Send medicine taken status to phone
+    func sendMedicineTakenStatusToPhone(medicine: String, taken: Bool) {
+        let session = WCSession.default
+        guard session.isReachable else {
+            print("iPhone is not reachable for medicine taken status")
+            return
+        }
+        let today = Self.dateString(for: Date())
+        let message: [String: Any] = [
+            "type": "medicine_taken",
+            "medicine": medicine,
+            "taken": taken,
+            "date": today
+        ]
+        print("Sending medicine taken status to iPhone: \(message)")
+        session.sendMessage(message, replyHandler: nil) { error in
+            print("Error sending medicine taken status: \(error.localizedDescription)")
+        }
+    }
+    
+    static func dateString(for date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: date)
     }
 }
