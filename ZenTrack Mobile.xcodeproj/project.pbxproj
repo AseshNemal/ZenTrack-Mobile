@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		314A2AC92E0D4BF5008E46E4 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 314A2AC82E0D4BF5008E46E4 /* AppIcon.png */; };
 		3166B0062E0AD70600CC774D /* ZenTrack Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 3166B0052E0AD70600CC774D /* ZenTrack Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		314A2AC82E0D4BF5008E46E4 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
 		3166AFB42E0AD68A00CC774D /* ZenTrack Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ZenTrack Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3166AFC22E0AD68C00CC774D /* ZenTrack MobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ZenTrack MobileTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3166AFCC2E0AD68D00CC774D /* ZenTrack MobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ZenTrack MobileUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,21 +91,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		3166AFB62E0AD68A00CC774D /* ZenTrack Mobile */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "ZenTrack Mobile";
-			sourceTree = "<group>";
-		};
-		3166AFC52E0AD68C00CC774D /* ZenTrack MobileTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "ZenTrack MobileTests";
-			sourceTree = "<group>";
-		};
-		3166AFCF2E0AD68D00CC774D /* ZenTrack MobileUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "ZenTrack MobileUITests";
-			sourceTree = "<group>";
-		};
 		3166AFE42E0AD70300CC774D /* ZenTrack */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ZenTrack;
@@ -206,9 +193,7 @@
 		3166AFAB2E0AD68A00CC774D = {
 			isa = PBXGroup;
 			children = (
-				3166AFB62E0AD68A00CC774D /* ZenTrack Mobile */,
-				3166AFC52E0AD68C00CC774D /* ZenTrack MobileTests */,
-				3166AFCF2E0AD68D00CC774D /* ZenTrack MobileUITests */,
+				314A2AC82E0D4BF5008E46E4 /* AppIcon.png */,
 				3166AFE42E0AD70300CC774D /* ZenTrack */,
 				3166AFF22E0AD70600CC774D /* ZenTrackTests */,
 				3166AFFC2E0AD70600CC774D /* ZenTrackUITests */,
@@ -250,9 +235,6 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				3166AFB62E0AD68A00CC774D /* ZenTrack Mobile */,
-			);
 			name = "ZenTrack Mobile";
 			packageProductDependencies = (
 			);
@@ -273,9 +255,6 @@
 			dependencies = (
 				3166AFC42E0AD68C00CC774D /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				3166AFC52E0AD68C00CC774D /* ZenTrack MobileTests */,
-			);
 			name = "ZenTrack MobileTests";
 			packageProductDependencies = (
 			);
@@ -295,9 +274,6 @@
 			);
 			dependencies = (
 				3166AFCE2E0AD68D00CC774D /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				3166AFCF2E0AD68D00CC774D /* ZenTrack MobileUITests */,
 			);
 			name = "ZenTrack MobileUITests";
 			packageProductDependencies = (
@@ -542,6 +518,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				314A2AC92E0D4BF5008E46E4 /* AppIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

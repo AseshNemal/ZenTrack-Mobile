@@ -95,28 +95,28 @@ class WatchDataManager: NSObject, ObservableObject, WCSessionDelegate {
             let session = WCSession.default
             session.delegate = self
             session.activate()
-            print("WCSession activated")
-            print("Session reachable: \(session.isReachable)")
-            print("Session paired: \(session.isPaired)")
-            print("Watch app installed: \(session.isWatchAppInstalled)")
             DispatchQueue.main.async {
                 self.isPaired = session.isPaired
-                self.isWatchAppInstalled = session.isWatchAppInstalled
-                self.isReachable = session.isReachable
             }
         }
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        // Handle activation completion if needed
+        DispatchQueue.main.async {
+            self.isPaired = session.isPaired
+        }
     }
     
     func sessionDidBecomeInactive(_ session: WCSession) {
-        // Handle session inactive if needed
+        DispatchQueue.main.async {
+            self.isPaired = session.isPaired
+        }
     }
     
     func sessionDidDeactivate(_ session: WCSession) {
-        // Handle session deactivation if needed
+        DispatchQueue.main.async {
+            self.isPaired = session.isPaired
+        }
         session.activate()
     }
     
