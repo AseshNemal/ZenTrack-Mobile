@@ -25,20 +25,23 @@ struct HabitView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
-                List {
-                    ForEach(store.availableHabits, id: \.self) { habit in
-                        Toggle(habit.name, isOn: Binding(
-                            get: { store.habits[habit.name, default: false] },
-                            set: { newValue in
-                                store.habits[habit.name] = newValue
-                                updateStreak()
-                                sendHabitsToPhone()
-                            }
-                        ))
-                        .padding(.vertical, 2)
+                VStack(spacing: 1){
+                    List {
+                        ForEach(store.availableHabits, id: \.self) { habit in
+                            Toggle(habit.name, isOn: Binding(
+                                get: { store.habits[habit.name, default: false] },
+                                set: { newValue in
+                                    store.habits[habit.name] = newValue
+                                    updateStreak()
+                                    sendHabitsToPhone()
+                                }
+                            ))
+                            .padding(.vertical, 2)
+                        }
                     }
+                    .frame(maxHeight: .infinity)
                 }
-                .frame(maxHeight: .infinity)
+                .padding(.bottom, -9)
                 
                 HStack(spacing: 8) {
                     Image(systemName: "flame.fill")
@@ -107,8 +110,6 @@ struct HabitView: View {
         WatchSessionManager.shared.sendCurrentStateToPhone()
     }
 }
-
-
 
 struct HabitView_Previews: PreviewProvider {
     static var previews: some View {
